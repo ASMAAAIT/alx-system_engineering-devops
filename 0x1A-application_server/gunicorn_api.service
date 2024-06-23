@@ -1,5 +1,5 @@
 [Unit]
-Description=Gunicorn instance to serve AirBnB Clone Project
+Description=Gunicorn instance to serve API for AirBnB Clone Project
 After=network.target
 After=syslog.target
 
@@ -12,7 +12,7 @@ Environment="HBNB_MYSQL_PWD=hbnb_dev_pwd"
 Environment="HBNB_MYSQL_HOST=localhost"
 Environment="HBNB_MYSQL_DB=hbnb_dev_db"
 Environment="HBNB_TYPE_STORAGE=db"
-ExecStart=/home/ubuntu/.local/bin/gunicorn --workers 3 --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app --access-logfile /tmp/airbnb-access.log --error-logfile /tmp/airbnb-error.log
+ExecStart=/home/ubuntu/.local/bin/gunicorn --bind 0.0.0.0:5002 api.v1.app:app
 Restart=on-failure
 
 [Install]
